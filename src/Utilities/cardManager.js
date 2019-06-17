@@ -2,14 +2,14 @@ const cardManager = (function(){
   const deckSize = 16;
 
   const deckValues = [
-    '&#x2135;',
-    '&#x213F;',
-    '&#x214A;',
-    '&#x2603;',
-    '&#x260F;',
-    '&#x262E;',
-    '&#x262F;',
-    '&#x2655;'];
+    '&#8501;',
+    '&#8511;',
+    '&#8522;',
+    '&#9731;',
+    '&#9743;',
+    '&#9774;',
+    '&#9775;',
+    '&#9813;'];
   
   const Card = function(value, id) {
     this.value = value;

@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
         ...state,
         matched: newMatched
       }
-      
+
     default:
       return state;
   }

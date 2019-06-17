@@ -1,4 +1,4 @@
-import { SET_STARTED, SET_TURNS, SET_STARS } from '../Actions/types';
+import { SET_STARTED, SET_TURNS, SET_STARS } from '../actions/types';
 
 let initialState = {
   started: false,

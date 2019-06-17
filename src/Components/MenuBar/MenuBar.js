@@ -10,6 +10,8 @@ export default function MenuBar(props) {
 
   
   return (
-    <div className="MenuBar"></div>
+    <div className="MenuBar">
+      <StartButton />
+    </div>
   )
 }
