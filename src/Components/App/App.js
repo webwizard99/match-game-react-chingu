@@ -1,25 +1,27 @@
 import React from 'react';
 import './App.css';
 import MenuBar from '../MenuBar/MenuBar';
+import GameContainer from '../GameContainer/GameContainer';
 
 
 import cardManager from '../../Utilities/cardManager';
 
 
 
-class App extends React.Component {
+export default function App(props) {
   
-  componentDidMount() {
+  const deck = cardManager.getCards();
+  if (deck.length < 1) {
     cardManager.init();
   }
   
-  render() {
-    return (
-      <div className="App">
+  return (
+    <div className="App">
+      <div className="MainContainer">
         <MenuBar />
+        <GameContainer deck={deck} />
       </div>
-    )
-  }
-}
+    </div>
+  )
 
-export default App;
+}

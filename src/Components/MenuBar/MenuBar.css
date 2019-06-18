@@ -1,5 +1,6 @@
 .MenuBar {
   height: 15%;
   width: 98%;
-  
+  display: flex;
+  justify-content: flex-end;
 }

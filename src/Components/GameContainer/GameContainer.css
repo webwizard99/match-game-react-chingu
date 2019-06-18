@@ -1,0 +1,7 @@
+.GameContainer {
+  height: 85%;
+  width: 98%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,26 @@
+.StarContainer {
+  width: 76%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+.star {
+  margin-left: .2rem;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 1px rgb(30, 30, 40),
+              -1px 1px 1px rgb(30, 30, 40),
+              1px -1px 1px rgb(30, 30, 40),
+              -1px -1px 1px rgb(30, 30, 40),
+              2px 2px 1px rgb(30, 30, 40);
+}
+
+.emptyStar {
+  color: rgba(253, 254, 255, 0.98);
+}
+
+.fullStar {
+  color: rgba(255, 255, 40, 1);
+}

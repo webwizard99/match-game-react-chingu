@@ -1,0 +1,18 @@
+.TurnsContainer {
+  width: 12%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
+  color: rgb(253, 254, 255);
+  text-shadow: 1px 1px rgb(30, 30, 40);
+}
+
+.TurnsLabel {
+  padding-left: 1rem;
+}
+
+.Turns {
+  margin-left: 1rem;
+}
