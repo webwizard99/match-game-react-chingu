@@ -1,20 +1,22 @@
+import React from 'react';
+
 const cardManager = (function(){
   const deckSize = 16;
 
   const deckValues = [
-    '&#8501;',
-    '&#8511;',
-    '&#8522;',
-    '&#9731;',
-    '&#9743;',
-    '&#9774;',
-    '&#9775;',
-    '&#9813;'];
+    <span>&#8501;</span>,
+    <span>&#8511;</span>,
+    <span>&#8522;</span>,
+    <span>&#9731;</span>,
+    <span>&#9743;</span>,
+    <span>&#9774;</span>,
+    <span>&#9775;</span>,
+    <span>&#9813;</span>];
   
   const Card = function(value, id) {
     this.value = value;
     this.id = id;
-    this.turned = false;
+    this.flipped = false;
     this.matched = false;
   }
 
@@ -38,7 +40,7 @@ const cardManager = (function(){
     while (sourceCards.length > 0) {
       const randomIndex = Math.floor(Math.random() * sourceCards.length);
       const randomCard = sourceCards.splice(randomIndex, 1);
-      filteredDeck.push(randomCard);
+      filteredDeck.push(...randomCard);
     }
     
     cards = filteredDeck;

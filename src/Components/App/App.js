@@ -10,9 +10,10 @@ import cardManager from '../../Utilities/cardManager';
 
 export default function App(props) {
   
-  const deck = cardManager.getCards();
+  let deck = cardManager.getCards();
   if (deck.length < 1) {
     cardManager.init();
+    deck = cardManager.getCards();
   }
   
   return (
