@@ -4,14 +4,14 @@ const cardManager = (function(){
   const deckSize = 16;
 
   const deckValues = [
-    <span>&#8501;</span>,
-    <span>&#8511;</span>,
-    <span>&#8522;</span>,
-    <span>&#9731;</span>,
-    <span>&#9743;</span>,
-    <span>&#9774;</span>,
-    <span>&#9775;</span>,
-    <span>&#9813;</span>];
+    <span className="cardValue">&#8501;</span>,
+    <span className="cardValue">&#8511;</span>,
+    <span className="cardValue">&#8522;</span>,
+    <span className="cardValue">&#9731;</span>,
+    <span className="cardValue">&#9743;</span>,
+    <span className="cardValue">&#9774;</span>,
+    <span className="cardValue">&#9775;</span>,
+    <span className="cardValue">&#9813;</span>];
   
   const Card = function(value, id) {
     this.value = value;
@@ -25,8 +25,11 @@ const cardManager = (function(){
   const setNewDeck = function() {
     cards = [];
 
-    let unfilteredDeck = [...deckValues];
-    unfilteredDeck.push(...deckValues);
+    let unfilteredDeck = [];
+    for (let cardValue = 0; cardValue < deckSize /2; cardValue++) {
+      unfilteredDeck.push(cardValue);
+      unfilteredDeck.push(cardValue);
+    }
     
     let sourceCards = [];
 
@@ -53,6 +56,10 @@ const cardManager = (function(){
 
     getCards: function() {
       return cards;
+    },
+
+    getCard(value) {
+      return deckValues[value];
     }
 
   }

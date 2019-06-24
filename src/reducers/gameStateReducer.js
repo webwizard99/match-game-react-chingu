@@ -1,8 +1,12 @@
-import { SET_FLIPPED, SET_MATCHED } from '../actions/types';
+import { SET_FLIPPED,
+  SET_MATCHED, 
+  SET_DECK,
+  SET_CARD_FLIPPED } from '../actions/types';
 
 let initialState = {
   flipped: false,
-  matched: []
+  matched: [],
+  deck: []
 }
 
 export default function(state = initialState, action) {
@@ -20,6 +24,25 @@ export default function(state = initialState, action) {
         ...state,
         matched: newMatched
       }
+
+    
+    case SET_DECK:
+      let newDeck = JSON.parse(JSON.stringify(action.deck));
+      return {
+        ...state,
+        deck: newDeck
+      }
+
+    case SET_CARD_FLIPPED:
+        let newFlipDeck = JSON.parse(JSON.stringify(state.deck));
+        let cardChanging = action.card;
+        let cardIndex = state.deck.indexOf(cardChanging);
+        newFlipDeck[cardIndex].flipped = action.value;
+
+        return {
+          ...state,
+          deck: newFlipDeck
+        }
 
     default:
       return state;

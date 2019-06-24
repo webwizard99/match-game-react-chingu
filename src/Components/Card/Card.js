@@ -1,6 +1,10 @@
 import React from 'react';
 import './Card.css';
+import cardManager from '../../Utilities/cardManager';
+
+// redux imports
 import { useSelector, useDispatch } from 'react-redux';
+import { SET_CARD_FLIPPED } from '../../actions/types';
 
 export default function Card(props) {
   const flipped = useSelector(state => state.game.flipped);
@@ -9,21 +13,24 @@ export default function Card(props) {
 
   let cardClass = started ? "Card" : "Card inactive-card";
   
-  if (props.card.flipped) {
-    cardClass = "Card flipped-card";
-  }
-
+  
 
   const handleClick = function() {
-    console.log(props.card);
-    props.card.flipped = true;
+    if (!started || flipped === props.card.id || props.card.flipped) return;
+    dispatch({ type: SET_CARD_FLIPPED, card: props.card, value: true });
+    cardClass="Card flipped-card";
+  }
+
+  if (props.card.flipped) {
+    cardClass = "Card flipped-card";
+
   }
 
   return (
-    <div className={cardClass}
+    <div className={props.card.flipped ? "Card flipped-card" : cardClass}
       onClick={handleClick}
     >
-    
+      {props.card.flipped ? cardManager.getCard(props.card.value) : ''}
     </div>
   )
 }
