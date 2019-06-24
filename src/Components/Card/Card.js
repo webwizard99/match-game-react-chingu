@@ -4,7 +4,7 @@ import cardManager from '../../Utilities/cardManager';
 
 // redux imports
 import { useSelector, useDispatch } from 'react-redux';
-import { SET_CARD_FLIPPED } from '../../actions/types';
+import { SET_CARD_FLIPPED, SET_FLIPPED } from '../../actions/types';
 
 export default function Card(props) {
   const flipped = useSelector(state => state.game.flipped);
@@ -19,6 +19,9 @@ export default function Card(props) {
     if (!started || flipped === props.card.id || props.card.flipped) return;
     dispatch({ type: SET_CARD_FLIPPED, card: props.card, value: true });
     cardClass="Card flipped-card";
+    if (!flipped) {
+      dispatch({ type: SET_FLIPPED, value: props.card.id });
+    }
   }
 
   if (props.card.flipped) {

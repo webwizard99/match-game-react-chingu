@@ -9,19 +9,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .inactive-card {
   background-color: rgb(60, 60, 60);
+  cursor: auto;
 }
 
 .flipped-card {
-  background-color: rgb(180, 120, 120)
+  background-color: rgb(240, 160, 220);
+  cursor: auto;
 }
 
 .cardValue {
   color: rgb(60, 20, 50);
   font-size: 4rem;
+  cursor: none;
+  pointer-events: none;
 }
 
 
