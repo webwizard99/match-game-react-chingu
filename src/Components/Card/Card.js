@@ -17,11 +17,14 @@ export default function Card(props) {
 
   const handleClick = function() {
     if (!started || flipped === props.card.id || props.card.flipped) return;
-    dispatch({ type: SET_CARD_FLIPPED, card: props.card, value: true });
+    dispatch({ type: SET_CARD_FLIPPED, card: props.card.id, value: true });
     cardClass="Card flipped-card";
     if (!flipped) {
       dispatch({ type: SET_FLIPPED, value: props.card.id });
+    } else {
+      props.checkMatch(props.card.id);
     }
+    
   }
 
   if (props.card.flipped) {
@@ -33,7 +36,7 @@ export default function Card(props) {
     <div className={props.card.flipped ? "Card flipped-card" : cardClass}
       onClick={handleClick}
     >
-      {props.card.flipped ? cardManager.getCard(props.card.value) : ''}
+      {props.card.flipped ? cardManager.getCardFace(props.card.value) : ''}
     </div>
   )
 }

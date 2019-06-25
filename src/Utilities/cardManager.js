@@ -3,7 +3,7 @@ import React from 'react';
 const cardManager = (function(){
   const deckSize = 16;
 
-  const deckValues = [
+  const faceValues = [
     <span className="cardValue">&#8501;</span>,
     <span className="cardValue">&#8511;</span>,
     <span className="cardValue">&#8522;</span>,
@@ -58,8 +58,8 @@ const cardManager = (function(){
       return cards;
     },
 
-    getCard(value) {
-      return deckValues[value];
+    getCardFace(value) {
+      return faceValues[value];
     }
 
   }

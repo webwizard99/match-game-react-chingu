@@ -19,7 +19,7 @@ export default function(state = initialState, action) {
 
     case SET_MATCHED:
       let newMatched = state.matched;
-      newMatched.push(...action.matched)
+      newMatched.push(action.matched)
       return {
         ...state,
         matched: newMatched
@@ -35,7 +35,7 @@ export default function(state = initialState, action) {
 
     case SET_CARD_FLIPPED:
         let newFlipDeck = JSON.parse(JSON.stringify(state.deck));
-        let cardChanging = action.card;
+        let cardChanging = state.deck.find(card => card.id === action.card);
         let cardIndex = state.deck.indexOf(cardChanging);
         newFlipDeck[cardIndex].flipped = action.value;
 
