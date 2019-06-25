@@ -9,7 +9,7 @@ import { SET_CARD_FLIPPED, SET_FLIPPED } from '../../actions/types';
 export default function Card(props) {
   const flipped = useSelector(state => state.game.flipped);
   const started = useSelector(state => state.app.started);
-  const paused = useSelector(state => state.app.paused);
+  const paused = useSelector(state => state.app.pause);
   const dispatch = useDispatch();
 
   let cardClass = started ? "Card" : "Card inactive-card";
@@ -17,13 +17,14 @@ export default function Card(props) {
   
 
   const handleClick = function() {
+    if (!flipped && paused) return;
     if (!started || flipped === props.card.id || props.card.flipped || paused) return;
     dispatch({ type: SET_CARD_FLIPPED, card: props.card.id, value: true });
     cardClass="Card flipped-card";
-    if (!flipped) {
-      dispatch({ type: SET_FLIPPED, value: props.card.id });
-    } else {
+    if (!!flipped) {
       props.checkMatch(props.card.id);
+    } else {
+      dispatch({ type: SET_FLIPPED, value: props.card.id });
     }
     
   }

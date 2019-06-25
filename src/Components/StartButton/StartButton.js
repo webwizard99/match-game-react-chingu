@@ -30,7 +30,7 @@ export default function StartButton(props) {
     dispatch({ type: SET_STARTED, value: true })
     dispatch({ type: SET_VICTORY, value: false });
     dispatch({ type: SET_TURNS, turns: 1 });
-    dispatch({ type: SET_STARS, stars: 1})
+    dispatch({ type: SET_STARS, stars: 0})
     cardManager.init();
     dispatch({ type: SET_DECK, deck: cardManager.getCards() })
   }

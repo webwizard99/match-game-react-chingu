@@ -1,5 +1,5 @@
 const constants = (function(){
-  const matchDelay = 700;
+  const matchDelay = 500;
 
   return {
     getMatchDelay: function() {
