@@ -11,7 +11,8 @@ import { SET_FLIPPED,
   SET_STARS ,
   SET_TURNS,
   SET_MATCHED,
-  SET_VICTORY } from '../../actions/types';
+  SET_VICTORY,
+  SET_PAUSE } from '../../actions/types';
 
 export default function GameContainer(props) {
   const deckState = useSelector(state => state.game.deck);
@@ -29,6 +30,7 @@ export default function GameContainer(props) {
     const card2 = deckState.find(card => card.id === id);
 
     if (!(card1.value === card2.value)) {
+      dispatch({ type: SET_PAUSE, value: true });
       window.setTimeout(function() {
         dispatch({ type: SET_FLIPPED, value: false });
         dispatch({ type: SET_CARD_FLIPPED, card: card1.id, value: false});
@@ -39,6 +41,7 @@ export default function GameContainer(props) {
         }
         const newTurns = turns + 1;
         dispatch({ type: SET_TURNS, turns: newTurns});
+        dispatch({ type: SET_PAUSE, value: false });
       }, constants.getMatchDelay()); 
 
       

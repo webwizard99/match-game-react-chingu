@@ -1,13 +1,15 @@
 import { SET_STARTED,
   SET_TURNS,
   SET_STARS,
-  SET_VICTORY } from '../actions/types';
+  SET_VICTORY,
+  SET_PAUSE } from '../actions/types';
 
 let initialState = {
   started: false,
   turns: 0,
   stars: 0,
-  victory: false
+  victory: false,
+  pause: false
 }
 
 export default function(state = initialState, action) {
@@ -34,6 +36,13 @@ export default function(state = initialState, action) {
         ...state,
         victory: action.value
       }
+
+    case SET_PAUSE:
+      return {
+        ...state,
+        pause: action.value
+      }
+      
     default:
       return state;
   }

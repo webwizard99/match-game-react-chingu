@@ -7,3 +7,4 @@ export const SET_STARS = "SET_STARS";
 export const SET_STARTED = "SET_STARTED";
 export const SET_TURNS = "SET_TURNS";
 export const SET_VICTORY = "SET_VICTORY";
+export const SET_PAUSE = "SET_PAUSE";
